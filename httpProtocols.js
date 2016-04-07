@@ -177,6 +177,14 @@ app.post('/dongfou/feedback', function (req, res) {
 });
 
 
+app.get('/dongfou/beat', function (req, res) {
+    res.writeHead(200, {'content-type': 'text/plain;charset=UTF-8'});
+    res.write('ok');
+    res.end();
+});
+
+
+
 
 
 //-------------------公共方法-------------------

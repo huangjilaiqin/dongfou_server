@@ -33,6 +33,7 @@ create table `t_feedback`(
     userid int not null,
     content varchar(1000) not null,
     time datetime not null,
+    status int not null default 0,
     primary key (id)
 )
 COLLATE='utf8_unicode_ci';
