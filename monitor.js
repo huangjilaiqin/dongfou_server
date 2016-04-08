@@ -44,11 +44,9 @@ function sendHtml(subject,html){
 }
 
 var beatOption = {
-    //host:'127.0.0.9',  
-    host:'128.0.0.9',  
+    host:'127.0.0.1',  
     path:'/dongfou/beat',  
     method:'get',  
-    timeout:3000,
 };
 
 function check(){
@@ -75,18 +73,8 @@ function check(){
     });
     
     //check web service
-    var request_timer = null, req = null;
-    request_timer = setTimeout(function() {
-        console.log('Request Timeout.');
-        check();
-    }, 5000);
+    
     var req=http.request(beatOption,function(res){  
-        clearTimeout(request_timer);
-        // 绛夊緟鍝嶅簲60绉掕秴
-        var response_timer = setTimeout(function() {
-            res.destroy();
-            console.log('Response Timeout.');
-        }, 5000);
         
         res.setEncoding('utf-8');  
         res.on('data',function(data){  
@@ -96,20 +84,13 @@ function check(){
                 console.log(data);
             }
         });  
-        req.on('error',function(e){
-            console.log("error got :"+e.message);
-        }).on('timeout',function(e){
-            console.log('timeout got :'+e.message);
-        });
-        res.on('abort', function(){
-                console.log('abort');
-                }); 
-        res.on('end', function() {
-            clearTimeout(response_timer);
-        });
 
     });
     
+    req.on('error',function(e){
+        console.log(new Date()+ " :"+e.message);
+        send('beat test',e.message);
+    });
     req.end();
     
     setTimeout(check,60000);

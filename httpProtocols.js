@@ -120,9 +120,9 @@ app.post('/dongfou/upload/sportrecord', function (req, res) {
     var form = new formidable.IncomingForm();
 
     form.parse(req, function(err, fields, files) {
-        var recordsStr = fields['records'];
-        console.log(recordsStr);
-        if(recordsStr==undefined || recordsStr==""){
+        var recordsstr = fields['records'];
+        console.log(recordsstr);
+        if(recordsstr==undefined || recordsstr==""){
             responseError(res, "argument is error");  
         }else{
             var records = JSON.parse(fields['records']);
@@ -153,6 +153,55 @@ app.post('/dongfou/upload/sportrecord', function (req, res) {
         }
     });
 });
+
+app.post('/dongfou/sportrecord/delete', function (req, res) {
+
+    var form = new formidable.IncomingForm();
+
+    form.parse(req, function(err, fields, files) {
+        var token = fields['token'];
+        var userid = fields['userid'];
+        var id = fields['id'];
+        var sportid = fields['sportid'];
+        var seq = fields['seq'];
+        console.log(userid,seq);
+        if(userid==undefined){
+            responseError(res, "argument is error");  
+        }else{
+            var sql = 'delete from t_sport_record where userid=? and seq=?';
+            db.query(sql, [userid,seq], function(err, rows){
+                if(err!=null){
+                    responseError(res, err);
+                }else{
+                    var data = {
+                        id:id,
+                        seq:seq,
+                        userid:userid,
+                    };
+                    responseNormal(res,data);
+                }
+            });
+        }
+    });
+});
+
+
+var tokens = {};
+function checkToken(userid,token){
+    var now = new Date().getTime()/1000;
+    var data = tokens[userid];
+    if(data!=undefined){
+        realToken = data['token'];
+        time = data['time'];
+        //token 7X24 
+        if(token==realToken && (now-time)<604800){
+            return true;
+        }
+    }else{
+        //query db
+    }
+    return false;
+}
 
 app.post('/dongfou/feedback', function (req, res) {
     var form = new formidable.IncomingForm();

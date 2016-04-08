@@ -27,6 +27,15 @@ create table `t_sport_record`(
 )
 COLLATE='utf8_unicode_ci';
 
+-- drop table t_token;
+create table `t_token`(
+    userid int not null,
+    token varchar(50) not null,
+    time datetime not null,
+    primary key (userid)
+)
+COLLATE='utf8_unicode_ci';
+
 -- drop table t_feedback;
 create table `t_feedback`(
     id int not null auto_increment,
@@ -46,21 +55,21 @@ create table `t_dongfou_user`(
 )
 COLLATE='utf8_unicode_ci';
 
-insert into t_sport values(1,'跑步','1.jpg',1,'公里',100,"",0);
-insert into t_sport values(2,'徒手深蹲','1.jpg',1,'次',500,"",0);
-insert into t_sport values(3,'负重深蹲','1.jpg',2,"次",500,"千克",200);
-insert into t_sport values(4,'飞鸟','1.jpg',2,"次",500,'千克',200);
-insert into t_sport values(5,'45度飞鸟','1.jpg',2,"次",500,'千克',200);
-insert into t_sport values(6,'卧推','1.jpg',2,"次",500,'千克',200);
-insert into t_sport values(8,'俯卧撑','1.jpg',1,"次",1000,'',0);
-insert into t_sport values(9,'上斜俯卧撑','1.jpg',1,"次",600,'',0);
-insert into t_sport values(10,'下斜俯卧撑','1.jpg',1,"次",600,'',0);
-insert into t_sport values(11,'仰卧起坐','1.jpg',1,"次",1000,'',0);
-insert into t_sport values(12,'引体向上','1.jpg',1,"次",600,'',0);
-insert into t_sport values(13,'负重引体向上','1.jpg',2,"次",500,'千克',100);
-insert into t_sport values(14,'举腿','1.jpg',1,"次",500,'',0);
-insert into t_sport (name,image,kind,unit,maxnum,unit2,maxnum2)values('上斜卧推','shangwotui.png',2,"次",200,'千克',200);
-insert into t_sport (name,image,kind,unit,maxnum,unit2,maxnum2)values('下斜卧推','xiawotui.png',2,"次",200,'千克',200);
-insert into t_sport (name,image,kind,unit,maxnum,unit2,maxnum2)values('腹肌轮','fujilun.png',1,"次",500,'',0);
-insert into t_sport (name,image,kind,unit,maxnum,unit2,maxnum2)values('跳绳','tiaoshen.png',1,"次",1000,'',0);
+-- insert into t_sport values(1,'跑步','1.jpg',1,'公里',100,"",0);
+-- insert into t_sport values(2,'徒手深蹲','1.jpg',1,'次',500,"",0);
+-- insert into t_sport values(3,'负重深蹲','1.jpg',2,"次",500,"千克",200);
+-- insert into t_sport values(4,'飞鸟','1.jpg',2,"次",500,'千克',200);
+-- insert into t_sport values(5,'45度飞鸟','1.jpg',2,"次",500,'千克',200);
+-- insert into t_sport values(6,'卧推','1.jpg',2,"次",500,'千克',200);
+-- insert into t_sport values(8,'俯卧撑','1.jpg',1,"次",1000,'',0);
+-- insert into t_sport values(9,'上斜俯卧撑','1.jpg',1,"次",600,'',0);
+-- insert into t_sport values(10,'下斜俯卧撑','1.jpg',1,"次",600,'',0);
+-- insert into t_sport values(11,'仰卧起坐','1.jpg',1,"次",1000,'',0);
+-- insert into t_sport values(12,'引体向上','1.jpg',1,"次",600,'',0);
+-- insert into t_sport values(13,'负重引体向上','1.jpg',2,"次",500,'千克',100);
+-- insert into t_sport values(14,'举腿','1.jpg',1,"次",500,'',0);
+-- insert into t_sport (name,image,kind,unit,maxnum,unit2,maxnum2)values('上斜卧推','shangwotui.png',2,"次",200,'千克',200);
+-- insert into t_sport (name,image,kind,unit,maxnum,unit2,maxnum2)values('下斜卧推','xiawotui.png',2,"次",200,'千克',200);
+-- insert into t_sport (name,image,kind,unit,maxnum,unit2,maxnum2)values('腹肌轮','fujilun.png',1,"次",500,'',0);
+-- insert into t_sport (name,image,kind,unit,maxnum,unit2,maxnum2)values('跳绳','tiaoshen.png',1,"次",1000,'',0);
 
