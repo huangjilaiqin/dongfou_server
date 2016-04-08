@@ -1,10 +1,10 @@
 
 start(){
-    forever start -p . -o log/jkout.log -e log/jkerror.log -a test.js
+    forever start -p . -o log/jkout.log -e log/jkerror.log -a monitor.js
 }
 
 stop(){
-    forever stop -p . -o log/jkout.log -e log/jkerror.log -a test.js
+    forever stop -p . -o log/jkout.log -e log/jkerror.log -a monitor.js
 }
 
 restart(){
