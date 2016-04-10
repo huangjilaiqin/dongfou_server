@@ -1,4 +1,3 @@
-use test;
 
 -- drop table t_sport;
 create table `t_sport`(
@@ -55,7 +54,7 @@ create table `t_dongfou_user`(
 )
 COLLATE='utf8_unicode_ci';
 
-drop table t_dongfou_notice;
+-- drop table t_dongfou_notice;
 create table `t_dongfou_notice`(
     id int not null auto_increment,
     kind int not null,
@@ -67,9 +66,9 @@ create table `t_dongfou_notice`(
     primary key (id)
 )
 COLLATE='utf8_unicode_ci';
-insert into t_dongfou_notice values(1,1,'动否0.0.1主要更新',now(),'http://www.pgyer.com/dongfou', 1, "");
-insert into t_dongfou_notice values(2,1,'动否0.0.2主要更新',now(),'http://www.pgyer.com/dongfou', 2, "");
-insert into t_dongfou_notice values(3,1,'动否0.0.3主要更新',now(),'http://www.pgyer.com/dongfou', 3, "");
+-- insert into t_dongfou_notice values(1,1,'动否0.0.1主要更新',now(),'http://www.pgyer.com/dongfou', 1, "");
+-- insert into t_dongfou_notice values(2,1,'动否0.0.2主要更新',now(),'http://www.pgyer.com/dongfou', 2, "");
+-- insert into t_dongfou_notice values(3,1,'动否0.0.3主要更新',now(),'http://www.pgyer.com/dongfou', 3, "");
 
 create table `t_dongfou_version`(
     versioncode int not null,
@@ -87,7 +86,7 @@ create table `t_dongfou_sign`(
 )
 COLLATE='utf8_unicode_ci';
 
-
+commit;
 -- insert into t_sport values(1,'跑步','1.jpg',1,'公里',100,"",0);
 -- insert into t_sport values(2,'徒手深蹲','1.jpg',1,'次',500,"",0);
 -- insert into t_sport values(3,'负重深蹲','1.jpg',2,"次",500,"千克",200);
