@@ -76,7 +76,6 @@ app.post('/dongfou/register', function (req, res) {
         var mail = fields['mail'];
         var passwd = fields['passwd'];
         if(mail==undefined || mail=="" || passwd==undefined || passwd==""){
-            res.writeHead(200, {'content-type': 'text/plain;charset=UTF-8'});
             var resData = {'error':"error arguments"};
             responseError(res, resData); 
             return;
@@ -84,13 +83,11 @@ app.post('/dongfou/register', function (req, res) {
         checkMail = 'select 1 from t_user where mail=?'
         db.query(checkMail, [mail], function(err, rows){
             if(err!=null){
-                res.writeHead(200, {'content-type': 'text/plain;charset=UTF-8'});
                 var resData = {'error':err};
                 responseError(res, resData); 
                 return;
             }
             if(rows.length>0){
-                res.writeHead(200, {'content-type': 'text/plain;charset=UTF-8'});
                 var resData = {'error':'mail is already register'};
                 responseError(res, resData); 
                 return;
@@ -99,7 +96,6 @@ app.post('/dongfou/register', function (req, res) {
                 values = [mail, passwd];
                 db.query(sql, values, function(err, rows){
                     if(err!=null){
-                        res.writeHead(200, {'content-type': 'text/plain;charset=UTF-8'});
                         var resData = {'error':err};
                         responseError(res, resData); 
                         return;
