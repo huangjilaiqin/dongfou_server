@@ -228,7 +228,45 @@ app.get('/dongfou/beat', function (req, res) {
     res.end();
 });
 
+app.post('/dongfou/notices', function (req, res) {
+    console.log('get notices');
+    var form = new formidable.IncomingForm();
+    form.parse(req, function(err, fields, files) {
+        var id = fields['id'];
+        var sql = "select * from t_dongfou_notice where id>? order by id";
+        db.query(sql, [id], function(err, rows){
+            if(err){
+                responseError(res, err);
+            }else{
+                responseNormal(res, {'datas':rows});
+            }
+        });
+    });
+});
 
+app.post('/dongfou/checkupdate', function (req, res) {
+    console.log('checkupdate');
+    var form = new formidable.IncomingForm();
+    form.parse(req, function(err, fields, files) {
+        var userid = fields['userid'];
+        var deviceid = fields['deviceid'];
+        var versioncode = fields['versioncode'];
+        var sql = "select * from t_dongfou_version";
+        db.query(sql, [], function(err, rows){
+            if(err){
+                responseError(res, err);
+            }else{
+                responseNormal(res, rows[0]);
+            }
+        });
+        sql = "insert into t_dongfou_sign (userid,deviceid,versioncode,time) values (?,?,?,now())";
+        db.query(sql, [userid,deviceid,versioncode], function(err, rows){
+            if(err){
+                console.log(err);
+            }
+        });
+    });
+});
 
 
 
