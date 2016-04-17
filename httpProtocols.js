@@ -142,7 +142,7 @@ app.post('/dongfou/register', function (req, res) {
             responseError(res, resData); 
             return;
         }
-        checkMail = 'select 1 from t_user where mail=?'
+        checkMail = 'select 1 from t_dongfou_user where mail=?'
         db.query(checkMail, [mail], function(err, rows){
             if(err!=null){
                 var resData = {'error':err};
