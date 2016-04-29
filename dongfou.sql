@@ -86,7 +86,6 @@ create table `t_dongfou_sign`(
 )
 COLLATE='utf8_unicode_ci';
 
-commit;
 -- insert into t_sport values(1,'跑步','1.jpg',1,'公里',100,"",0);
 -- insert into t_sport values(2,'徒手深蹲','1.jpg',1,'次',500,"",0);
 -- insert into t_sport values(3,'负重深蹲','1.jpg',2,"次",500,"千克",200);
@@ -104,4 +103,12 @@ commit;
 -- insert into t_sport (name,image,kind,unit,maxnum,unit2,maxnum2)values('下斜卧推','xiawotui.png',2,"次",200,'千克',200);
 -- insert into t_sport (name,image,kind,unit,maxnum,unit2,maxnum2)values('腹肌轮','fujilun.png',1,"次",500,'',0);
 -- insert into t_sport (name,image,kind,unit,maxnum,unit2,maxnum2)values('跳绳','tiaoshen.png',1,"次",1000,'',0);
+
+insert into t_sport (id,name,image,kind,unit,maxnum)values(21,'体重','weight.png',3,"kg",200);
+insert into t_sport (id,name,image,kind,unit,maxnum)values(22,'腰围','yaowei.png',3,"cm",220);
+insert into t_sport (id,name,image,kind,unit,maxnum)values(23,'臀围','tunwei.png',3,"cm",270);
+insert into t_sport (id,name,image,kind,unit,maxnum)values(24,'大腿','datui.png',3,"cm",150);
+insert into t_sport (id,name,image,kind,unit,maxnum)values(25,'小腿','xiaotui.png',3,"cm",120);
+insert into t_sport (id,name,image,kind,unit,maxnum)values(26,'胸围','xiongwei.png',3,"cm",300);
+insert into t_sport (id,name,image,kind,unit,maxnum)values(27,'臂围','biwei.png',3,"cm",100);
 

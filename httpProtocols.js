@@ -20,7 +20,7 @@ app.post('/dongfou/sports', function (req, res) {
     console.log('post sports');
     var form = new formidable.IncomingForm();
     form.parse(req, function(err, fields, files) {
-        var sql = "select * from t_sport";
+        var sql = "select * from t_sport where id in (2,8,11,12,20,21,22,23,24,25)";
         db.query(sql, [], function(err, rows){
             if(err){
                 responseError(res, err);
@@ -35,7 +35,7 @@ app.get('/dongfou/sports', function (req, res) {
     console.log('get sports');
     var form = new formidable.IncomingForm();
     form.parse(req, function(err, fields, files) {
-        var sql = "select * from t_sport";
+        var sql = "select * from t_sport where id in (2,8,11,12,20,21,22,23,24,25)";
         db.query(sql, [], function(err, rows){
             if(err){
                 responseError(res, err);
